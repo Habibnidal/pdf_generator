@@ -6,11 +6,10 @@
     body { font-family: Arial; padding: 20px; }
     table { width: 100%; border-collapse: collapse; }
     th, td { border: 1px solid #ccc; padding: 6px; }
-    button { margin-top: 8px; padding: 6px 12px; }
+    button { padding: 6px 12px; margin-top: 8px; }
     input { width: 100%; }
   </style>
 </head>
-
 <body>
 
 <h2>Generate Invoice</h2>
@@ -40,7 +39,6 @@
 
   <button type="button" onclick="addRow()">➕ Add Row</button><br><br>
   <button type="submit">Generate PDF</button>
-
 </form>
 
 <script>
@@ -54,7 +52,6 @@ function addRow() {
     <td><button type="button" onclick="removeRow(this)">❌</button></td>
   `;
 }
-
 function removeRow(btn) {
   btn.closest("tr").remove();
 }

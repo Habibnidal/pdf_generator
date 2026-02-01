@@ -7,15 +7,13 @@
       margin: 0;
       height: 100vh;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       font-family: Arial, sans-serif;
       background: white;
     }
 
-    .box {
-      text-align: center;
-    }
+    .box { text-align: center; }
 
     .text {
       font-size: 20px;
@@ -24,26 +22,13 @@
     }
 
     .child {
-      width: 80px;
-      height: 80px;
+      width: 60px;
+      height: 60px;
+      background: black;
       border-radius: 50%;
-      background: #000;
-      position: relative;
       animation: walk 1s infinite alternate;
+      margin: auto;
     }
-
-    .child::before,
-    .child::after {
-      content: "";
-      position: absolute;
-      width: 10px;
-      height: 30px;
-      background: #000;
-      bottom: -30px;
-    }
-
-    .child::before { left: 20px; }
-    .child::after { right: 20px; }
 
     @keyframes walk {
       from { transform: translateX(-20px); }
@@ -63,7 +48,6 @@
     }
   </style>
 </head>
-
 <body>
 
 <div class="box">
@@ -77,12 +61,9 @@
   async function checkServer() {
     try {
       const res = await fetch("/health", { cache: "no-store" });
-      if (res.ok) {
-        window.location.href = "/app";
-      }
+      if (res.ok) window.location.href = "/app";
     } catch (e) {}
   }
-
   setInterval(checkServer, 2000);
 </script>
 
