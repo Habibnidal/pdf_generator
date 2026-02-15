@@ -1,68 +1,135 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Invoice Generator</title>
+  <title>IMPACT BUSINESS SOLUTIONS</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
-    body { font-family: Arial; padding: 20px; }
-    table { width: 100%; border-collapse: collapse; }
-    th, td { border: 1px solid #ccc; padding: 6px; }
-    button { padding: 6px 12px; margin-top: 8px; }
-    input { width: 100%; }
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #d32f2f, #b71c1c);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      padding: 20px;
+    }
+
+    .hero-container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 50px 60px;
+      border-radius: 12px;
+      backdrop-filter: blur(8px);
+      width: 100%;
+      max-width: 550px;
+    }
+
+    .company-title {
+      font-size: 26px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+
+    .company-tagline {
+      font-size: 14px;
+      font-style: italic;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+
+    .welcome-text {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    .name-text {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 35px;
+    }
+
+    .btn {
+      padding: 14px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 10px 0;
+      transition: 0.3s ease;
+      width: 100%;
+      font-weight: bold;
+    }
+
+    .invoice-btn {
+      background: white;
+      color: #d32f2f;
+    }
+
+    .quotation-btn {
+      background: black;
+      color: white;
+    }
+
+    .btn:hover {
+      transform: scale(1.03);
+      opacity: 0.9;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 480px) {
+      .hero-container {
+        padding: 35px 25px;
+      }
+
+      .company-title {
+        font-size: 20px;
+      }
+
+      .name-text {
+        font-size: 18px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-<h2>Generate Invoice</h2>
+  <div class="hero-container">
 
-<form method="POST" action="/generate">
+    <div class="company-title">IMPACT BUSINESS SOLUTIONS</div>
+    <div class="company-tagline">The Complete Business Solutions</div>
 
-  <!-- CLIENT NAME -->
-  <label>Client Name</label><br>
-  <input name="client_name" required><br><br>
+    <div class="welcome-text">Welcome</div>
+    <div class="name-text">Nufail Punnakkal</div>
 
-  <!-- INVOICE NO -->
-  <label>Invoice No</label><br>
-  <input name="invoice_no" required placeholder="e.g. 3883"><br><br>
+    <button class="btn invoice-btn" onclick="generateInvoice()">
+      Generate Invoice
+    </button>
 
-  <!-- ITEMS TABLE -->
-  <table id="itemsTable">
-    <tr>
-      <th>Description</th>
-      <th>Qty</th>
-      <th>Unit Price</th>
-      <th>Action</th>
-    </tr>
+    <button class="btn quotation-btn" onclick="generateQuotation()">
+      Generate Quotation
+    </button>
 
-    <tr>
-      <td><input name="desc[]" required></td>
-      <td><input name="qty[]" type="number" required></td>
-      <td><input name="price[]" type="number" required></td>
-      <td><button type="button" onclick="removeRow(this)">❌</button></td>
-    </tr>
-  </table>
+  </div>
 
-  <button type="button" onclick="addRow()">➕ Add Row</button><br><br>
-  <button type="submit">Generate PDF</button>
+  <script>
+    function generateInvoice() {
+      window.location.href = "invoice-form.html";
+    }
 
-</form>
-
-<script>
-function addRow() {
-  const table = document.getElementById("itemsTable");
-  const row = table.insertRow(-1);
-  row.innerHTML = `
-    <td><input name="desc[]" required></td>
-    <td><input name="qty[]" type="number" required></td>
-    <td><input name="price[]" type="number" required></td>
-    <td><button type="button" onclick="removeRow(this)">❌</button></td>
-  `;
-}
-
-function removeRow(btn) {
-  btn.closest("tr").remove();
-}
-</script>
+    function generateQuotation() {
+      window.location.href = "quotation-form.html";
+    }
+  </script>
 
 </body>
 </html>
