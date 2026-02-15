@@ -1,9 +1,10 @@
 const express = require("express");
 const fs = require("fs");
-const app = express();
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public"));
+const path = require("path");
+const puppeteer = require("puppeteer-core");
+const chromium = require("@sparticuz/chromium");
 
+const app = express();
 /* =========================
    INVOICE GENERATION
 ========================= */
