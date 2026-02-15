@@ -1,9 +1,6 @@
 const express = require("express");
 const fs = require("fs");
-const puppeteer = require("puppeteer");
-
 const app = express();
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
